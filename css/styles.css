@@ -35,6 +35,28 @@ body {
   background:#f8f8f8;
 }
 
+#choices > li.correct {
+  background: #d4edcd;
+  border-color: #c3e6cf;
+  color: #155727;
+  font-weight: bold; 
+}
+
+#choices > li.correct::after{
+  content: '... 正解！';
+}
+
+#choices > li.wrong {
+  background: #f8d8da;
+  border-color: #f5c6cb;
+  color: #721c24;
+  font-weight: bold; 
+}
+
+#choices > li.wrong::after{
+  content: '... 不正解！';
+}
+
 #btn { 
   background: #3498db;
   padding:8px;
