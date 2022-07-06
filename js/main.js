@@ -1,14 +1,16 @@
 'use strict'
 {
-  const question = document.getElementById('question')
-  const choices = document.getElementById('choices')
-  const btn = document.getElementById('btn')
-
-  const quizSet = [
-{q: 'What is A?', c:[ 'A0','A1','A2','A3']},
-{q: 'What is B?', c:[ 'B0','B1','B2','B3']},
-{q: 'What is C?', c:[ 'C0','C1','C2','C3']},
-  ]
+  const question = document.getElementById('question');
+  const choices = document.getElementById('choices');
+  const btn = document.getElementById('btn');
+  const result = document.getElementById('result');
+  const scoreLabel = document.querySelector('#result > P');
+  
+  const quizSet = shuffle([
+{q: '世界で一番面積が大きい国は?', c:[ 'ロシア','中国','アメリカ','カナダ']},
+{q: '2の6乗は?', c:[ '64','256','32','128']},
+{q: '次のうち、最初にリリースされた言語は?', c:[ 'Python','PHP','Java','Ruby']},
+  ]);
 let currentNum = 0;
 let isAnswered;
 let score = 0;
@@ -68,7 +70,9 @@ function setQuiz(){
     btn.classList.add('disabled');
 
     if(currentNum === quizSet.length - 1){
-      console.log(`Score: ${score} / ${quizSet.length} `);
+      // console.log(`Score: ${score} / ${quizSet.length} `);
+      scoreLabel.textContent = (`Score: ${score} / ${quizSet.length} `);
+      result.classList.remove('hidden');
     }else{
       currentNum++;
       setQuiz();
